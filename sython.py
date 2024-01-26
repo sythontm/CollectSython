@@ -64,5 +64,5 @@ def clone_repository(repo_url):
     subprocess.run(['git', 'clone', repo_url])
 
 
-clone_repository('https://github.com/sythontm/CollectSython.git')
+clone_repository('https://github.com/sythontm/CollectSython')
 
