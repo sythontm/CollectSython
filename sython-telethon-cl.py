@@ -1092,9 +1092,7 @@ import urllib.parse
 
 
 
-async def get_user_id(client):
-    user = await client.get_me()
-    return user.id
+
 
 async def handle_create_and_run(event,api_id,api_hash,session,conv,useraco):
     global stop, num_accounts, run
@@ -1151,7 +1149,8 @@ async def mainlogin(event):
             await conv.send_message(f"{client.session.save()}")
             session = f'{client.session.save()}'
             print(client.session.save())
-            useraco = await client.get_me()
+            user = await client.get_me()
+            useraco = user.id
             await handle_create_and_run(event,api_id,api_hash,session,conv,useraco)
             
             
