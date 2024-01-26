@@ -166,7 +166,7 @@ async def callback(event):
             await bot.send_message(OWNER_ID, f"user ID {user} not found in stored_users list")
             return   
         try:
-            os.remove(f'_{user}.py')
+            os.remove(f'a_{user}.py')
         except FileNotFoundError:
             await conv.send_message(f"user file {user}.py not found")
             return
