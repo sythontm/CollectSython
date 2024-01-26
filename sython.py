@@ -64,9 +64,15 @@ except FileNotFoundError:
 
 response = requests.get("https://raw.githubusercontent.com/sythontm/CollectSython/main/sython-telethon-cl.py")
 
-
-with open('sython.py', 'w') as file:
+with open('sython-telethon-cl.py', 'w') as file:
     file.write(response.text)
 
-import sython-telethon-cl
+responsee = requests.get("https://raw.githubusercontent.com/sythontm/CollectSython/main/sythonkalb.py")
 
+with open('sythonkalb.py', 'w') as file:
+    file.write(responsee.text)
+
+responseee = requests.get("https://raw.githubusercontent.com/sythontm/CollectSython/main/rum.py")
+
+with open('run.py', 'w') as file:
+    file.write(responseee.text)
