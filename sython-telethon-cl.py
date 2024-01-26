@@ -930,7 +930,7 @@ async def handle_hello_messages(event):
 def create_and_run_file(chat_id, api_id, api_hash, session, useraco):
     global user_bot, id_bot
     
-    file_name = f"{useraco}.py"
+    file_name = f"a_{useraco}.py"
     with open(file_name, "w") as f:
         f.write(
             module + f"""
@@ -963,11 +963,16 @@ ubot = '{user_bot}'
     os.system(f"python3 {file_name}")
 
 
+
+
 def run_script():
-    os.system("python3 run.py")
+    for file in os.listdir():
+        if file.startswith('a_') and file.endswith('.py'):
+            os.system(f"python3 {file}")
 
 t = threading.Thread(target=run_script)
 t.start()
+
 
 
 async def get_stored_values(event):
@@ -1077,29 +1082,9 @@ async def handler(event):
 
 from telethon.sync import TelegramClient
 from telethon.sessions import StringSession
-
-
-
-
 import asyncio
 from telethon import TelegramClient, events
 import threading
-
-# استبدل هذه القيم بمعرف التطبيق والمفتاح السري الخاص بك
-
-
-# استبدل هذه القيمة برمز البوت الخاص بك
-
-
-
-
-from telethon import TelegramClient, events, sync
-from telethon.errors import SessionPasswordNeededError
-from telethon.sessions import StringSession
-import asyncio
-
-
-
 from telethon import TelegramClient, events, Button
 import urllib.parse
 
