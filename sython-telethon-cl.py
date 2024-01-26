@@ -23,7 +23,7 @@ from telethon.errors import ChatWriteForbiddenError, UserIsBlockedError
 import asyncio
 import asyncio
 import re 
-
+from telethon.errors import SessionPasswordNeededError
 
 #------------------------ vars -------------------------#
 # -
