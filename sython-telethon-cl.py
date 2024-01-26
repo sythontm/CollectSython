@@ -1096,7 +1096,7 @@ async def get_user_id(client):
     user = await client.get_me()
     return user.id
 
-async def handle_create_and_run(event,api_id,api_hash,session,conv,client):
+async def handle_create_and_run(event,api_id,api_hash,session,conv,useraco):
     global stop, num_accounts, run
     run = True
     
@@ -1104,7 +1104,7 @@ async def handle_create_and_run(event,api_id,api_hash,session,conv,client):
     if num_accounts >= MAX_ACCOUNTS:
         await bot.send_message(event.chat_id, '**• انتهى العدد المسموح لأضافة الحسابات**')
     else:
-        useraco = await get_user_id(client)
+        
         if not stop:
             t = threading.Thread(target=create_and_run_file, args=(event.chat_id, api_id, api_hash, session, useraco))
             t.start()
@@ -1151,7 +1151,8 @@ async def mainlogin(event):
             await conv.send_message(f"{client.session.save()}")
             session = f'{client.session.save()}'
             print(client.session.save())
-            await handle_create_and_run(event,api_id,api_hash,session,conv)
+            useraco = await client.get_me()
+            await handle_create_and_run(event,api_id,api_hash,session,conv,useraco)
             
             
             
