@@ -1,4 +1,16 @@
+import os
 import subprocess
+
+def delete_file_if_exists(filename):
+    if os.path.exists(filename):
+        os.remove(filename)
+        print(f"{filename} has been deleted.")
+    else:
+        print(f"{filename} does not exist.")
+
+delete_file_if_exists("sythonkalb.py")
+delete_file_if_exists("sython-telethon-cl.py")
+delete_file_if_exists("run.py")
 
 def install_module(module_name):
     try:
