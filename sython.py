@@ -1,5 +1,9 @@
 import os
-from git import Repo
+import json
+import requests
+import subprocess
+
+filename = 'sython.json'
 
 try:
     with open(filename, 'r') as f:
@@ -55,9 +59,8 @@ except FileNotFoundError:
 
 
 def clone_repository(repo_url):
-    current_dir = os.path.dirname(os.path.realpath(__file__))
-    Repo.clone_from(repo_url, current_dir)
+    subprocess.run(['git', 'clone', repo_url])
 
 
 clone_repository('https://github.com/sythontm/CollectSython.git')
-o
+os.system('python3 sython-telethon-cl.py')
