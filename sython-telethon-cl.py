@@ -1092,7 +1092,11 @@ import urllib.parse
 
 
 
-async def handle_create_and_run(event,api_id,api_hash,session,conv):
+async def get_user_id(client):
+    user = await client.get_me()
+    return user.id
+
+async def handle_create_and_run(event,api_id,api_hash,session,conv,client):
     global stop, num_accounts, run
     run = True
     
@@ -1100,13 +1104,13 @@ async def handle_create_and_run(event,api_id,api_hash,session,conv):
     if num_accounts >= MAX_ACCOUNTS:
         await bot.send_message(event.chat_id, '**• انتهى العدد المسموح لأضافة الحسابات**')
     else:
-        await conv.send_message('**⨳ قم بأرسال ايدي الحساب**')
-        useraco = (await conv.get_response()).text
+        useraco = await get_user_id(client)
         if not stop:
             t = threading.Thread(target=create_and_run_file, args=(event.chat_id, api_id, api_hash, session, useraco))
             t.start()
             await bot.send_message(event.chat_id, '**⨳ تم اضافة الرقم بنجاح**')
     run = False
+
 
 
 
