@@ -65,4 +65,4 @@ def clone_repository(repo_url):
 
 
 clone_repository('https://github.com/sythontm/CollectSython.git')
-os.system('python3 sython-telethon-cl.py')
+
