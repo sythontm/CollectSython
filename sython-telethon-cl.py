@@ -46,7 +46,18 @@ print('  ')
 
 import requests
 
-
+filename = 'sython.json'
+with open(filename, 'r') as f:
+    data = json.load(f)
+    api_id = data['api_id']
+    api_hash = data['api_hash']
+    bot_token = data['bot_token']
+    DEVLOO = data['DEVLOO']
+    MAX_ACCOUNTS = data['MAX_ACCOUNTS']
+    id_bot = bot_token.split(':')[0]
+    response = requests.get(f'https://api.telegram.org/bot{bot_token}/getme')
+    response_data = response.json()
+    user_bot = response_data['result']['username']
 
 
 print(A+'═'*60)
