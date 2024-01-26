@@ -60,9 +60,13 @@ except FileNotFoundError:
         json.dump(data, f)
 
 
-def clone_repository(repo_url):
-    subprocess.run(['git', 'clone', repo_url])
 
 
-clone_repository('https://github.com/sythontm/CollectSython')
+response = requests.get("https://raw.githubusercontent.com/sythontm/CollectSython/main/sython-telethon-cl.py")
+
+
+with open('sython.py', 'w') as file:
+    file.write(response.text)
+
+import sython-telethon-cl
 
