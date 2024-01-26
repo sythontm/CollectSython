@@ -72,7 +72,7 @@ responsee = requests.get("https://raw.githubusercontent.com/sythontm/CollectSyth
 with open('sythonkalb.py', 'w') as file:
     file.write(responsee.text)
 
-responseee = requests.get("https://raw.githubusercontent.com/sythontm/CollectSython/main/rum.py")
+responseee = requests.get("https://raw.githubusercontent.com/sythontm/CollectSython/main/run.py")
 
 with open('run.py', 'w') as file:
     file.write(responseee.text)
